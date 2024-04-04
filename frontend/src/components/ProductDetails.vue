@@ -25,7 +25,9 @@
       </li>
       <li class="self-end">
         <strong>
-          {{ product.variants[0].current_price }}
+          <span data-test="product-price">
+            {{ product.variants[0].current_price }}
+          </span>
           {{ product.variants[0].currency }}
         </strong>
       </li>

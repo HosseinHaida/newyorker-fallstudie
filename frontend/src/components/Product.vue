@@ -6,9 +6,11 @@
     <div v-else-if="!product" class="text-slate-500 dark:text-slate-400">
       No product to show!
     </div>
-    <div v-else-if="props.product && productImg" class="w-full flex flex-col">
+    <div v-else-if="props.product" class="w-full flex flex-col">
       <img
-        :src="`https://api.newyorker.de/csp/images/image/public/${productImg.key}?&frame=1_1`"
+        v-if="productImg"
+        data-test="product-image"
+        :src="`${nYImagesEndpoint}/${productImg.key}?&frame=1_1`"
         alt="Product Image"
         class="p-4 w-full aspect-square"
       />
@@ -20,7 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import ProductDetails from "./ProduckDetails.vue"
+import ProductDetails from "./ProductDetails.vue"
+import { nYImagesEndpoint } from "@/store/constants"
 import { useOutfitStore } from "@/store/outfit-store"
 import { Product } from "@/types/Product"
 import { computed } from "vue"
