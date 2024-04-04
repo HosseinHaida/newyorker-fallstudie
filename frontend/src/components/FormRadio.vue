@@ -4,7 +4,7 @@
       <input
         name="type"
         type="radio"
-        class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-red-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 hover:before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-red-400 checked:before:bg-red-300 hover:before:opacity-10"
+        class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-600 dark:border-slate-300 text-red-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 hover:before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-red-400 checked:before:bg-red-300 hover:before:opacity-10"
         :value="props.value"
         @change="emits('change')"
       />

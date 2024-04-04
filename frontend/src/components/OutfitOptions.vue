@@ -6,30 +6,45 @@
     >
       <FormRadio
         :value="selectedGender"
-        @change="selectedGender = genders['male']"
-        :label="genders['male']"
+        @change="selectedGender = genders.MALE"
+        :label="genders.MALE"
       />
       <FormRadio
         :value="selectedGender"
-        @change="selectedGender = genders['female']"
-        :label="genders['female']"
+        @change="selectedGender = genders.FEMALE"
+        :label="genders.FEMALE"
       />
 
       <button
-        class="ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        class="ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded disabled:bg-red-300 w-44"
+        @click="onFetchRandomOutfit"
+        :disabled="fetchingOutfit"
       >
-        GENERATE
+        <span v-if="fetchingOutfit">LOADING</span>
+        <span v-else>GENERATE</span>
       </button>
     </div>
+    <div class="text-red-600">{{ error }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { computed, ref } from "vue"
 import FormRadio from "./FormRadio.vue"
 
-const selectedGender = ref("female")
-const genders = ref({ male: "Male", female: "Female" })
+import { useOutfitStore } from "@/store/outfit-store"
+import { Gender } from "@/types/Gender"
+const outfitStore = useOutfitStore()
+
+const genders = ref<Gender>({ MALE: "male", FEMALE: "female" })
+const selectedGender = ref("male")
+
+const error = computed(() => outfitStore.fetchError)
+const fetchingOutfit = computed(() => outfitStore.fetchingOutfit)
+
+const onFetchRandomOutfit = async () => {
+  await outfitStore.fetchRandomOutfit(selectedGender.value)
+}
 </script>
 
 <style scoped></style>

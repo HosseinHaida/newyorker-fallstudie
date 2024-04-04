@@ -1,7 +1,7 @@
-import { OutfitPieceI } from "./OutfitPiece"
+import { Product } from "./Product"
 
-export interface OutfitI {
-  outerWear: OutfitPieceI
-  innerWear: OutfitPieceI
-  accessory: OutfitPieceI
+export interface Outfit {
+  outerWear: Product
+  innerWear: Product
+  accessory: Product
 }
