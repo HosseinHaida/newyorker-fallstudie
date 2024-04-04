@@ -19,9 +19,10 @@ const FetchSingle = (filters) => __awaiter(void 0, void 0, void 0, function* () 
     let fetchedProduct = null;
     try {
         yield axios_1.default
-            .get(`${variables_1.nYProductsQuery}/query?filters[country]=${filters.country}&filters[gender]=${filters.gender}&filters[limit]=1&filters[web_category]=${filters.category}`)
+            .get(`${variables_1.nYProductsQuery}/query?filters[country]=${filters.country}&filters[gender]=${filters.gender}&filters[limit]=${filters.limit}&filters[offset]=${filters.offset}&filters[web_category]=${filters.category}`)
             .then((res) => {
-            fetchedProduct = res.data.items[0];
+            let randomIndex = Math.floor(Math.random() * 10) + 1;
+            fetchedProduct = res.data.items[randomIndex];
         });
     }
     catch (error) {

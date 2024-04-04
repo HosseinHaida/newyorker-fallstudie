@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const CatchError_1 = require("../../helpers/CatchError");
+const CatchError_1 = require("../../tools/CatchError");
 const ProductFiltersBuilder_1 = require("../product/ProductFiltersBuilder");
 const ProductModel_1 = __importDefault(require("../product/ProductModel"));
 exports.default = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -33,7 +33,7 @@ exports.default = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             category: "outerWear",
         }));
         if (!accessory || !innerWear || !outerWear)
-            return (0, CatchError_1.catchError)({ msg: "Product fetch from NewYorker failed", code: 500 }, res);
+            return (0, CatchError_1.catchError)({ msg: "Product-fetch from NewYorker failed", code: 502 }, res);
         const outfit = { accessory, innerWear, outerWear };
         const data = { item: outfit };
         res.status(200).send(data);

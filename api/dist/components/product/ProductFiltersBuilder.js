@@ -6,7 +6,8 @@ class ProductFiltersBuilder {
     constructor({ gender, category }) {
         this.gender = gender.toUpperCase();
         this.country = "de";
-        this.offset = Math.floor(Math.random() * 100) + 1;
+        this.offset = Math.floor(Math.random() * 500) + 1;
+        this.limit = 10;
         if (gender === "male")
             switch (category) {
                 case "accessory":
