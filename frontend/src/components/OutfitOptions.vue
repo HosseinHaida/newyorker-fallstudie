@@ -2,7 +2,7 @@
   <div>
     Filter
     <div
-      class="bg-slate-400/20 dark:bg-slate-600/20 pl-4 pr-3 py-2 w-fit flex gap-6 items-center rounded"
+      class="bg-slate-400/20 dark:bg-slate-600/20 pl-2 md:pl-4 pr-3 py-2 w-full md:w-fit flex gap-2 md:gap-6 items-center rounded"
     >
       <FormRadio
         :value="selectedGender"
@@ -16,7 +16,7 @@
       />
 
       <button
-        class="ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded disabled:bg-red-300 w-44"
+        class="ml-auto md:ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded disabled:bg-red-300 w-36 md:w-44"
         @click="onFetchRandomOutfit"
         :disabled="fetchingOutfit"
       >

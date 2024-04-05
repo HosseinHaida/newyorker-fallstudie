@@ -1,9 +1,7 @@
 <template>
   <div>
     Random Outfit
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-2 bg-slate-400/20 dark:bg-slate-600/20 p-5 rounded"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 p-5 rounded">
       <Product :product="outfit.accessory" />
       <Product :product="outfit.innerWear" />
       <Product :product="outfit.outerWear" />
