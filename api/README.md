@@ -5,7 +5,7 @@ This Node.js Express API serves as the backend for the NewYorker-Fallstudie.
 ## Key Features
 
 - Written in TypeScript for improved type safety and maintainability.
-- Leverages Express.js for a robust and flexible framework.
+- Leverages Express.js for a flexible framework.
 - Uses Axios to handle requests to api.newyorker.de
 
 ### Installation
