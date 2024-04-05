@@ -6,11 +6,11 @@ services:
     ports:
       - "3333:3333"
     volumes:
-      - ./api:/api:rw
+      - ./api-data:/api:rw
 
   frontend:
     build: ./frontend
     ports:
       - "80:80"
     volumes:
-      - ./frontend:/frontend:rw
+      - ./frontend-data:/frontend:rw
