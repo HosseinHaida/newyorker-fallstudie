@@ -19,10 +19,11 @@ export const useOutfitStore = defineStore("outfit", {
         this.randomOutfit = outfit
         this.fetchError = ""
       } catch (error: AxiosError | unknown) {
-        if (isAxiosError(error) && error.response) {
-          this.fetchError = error.response.statusText
+        if (isAxiosError(error)) {
+          if (error.response) this.fetchError = error.response.statusText
+          if (error.message) this.fetchError = error.message
         } else {
-          console.log(error)
+          console.log("Could not fetch random outfit")
         }
       }
       this.fetchingOutfit = false
