@@ -1,6 +1,5 @@
 <template>
   <div>
-    Filter
     <div
       class="bg-slate-400/20 dark:bg-slate-600/20 pl-2 md:pl-4 pr-3 py-2 w-full md:w-fit flex gap-2 md:gap-6 items-center rounded"
     >
@@ -16,12 +15,12 @@
       />
 
       <button
-        class="ml-auto md:ml-12 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded disabled:bg-red-300 w-36 md:w-44"
+        class="ml-auto md:ml-12 text-sm bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded disabled:bg-red-300 w-32 md:w-56 transition-colors"
         @click="onFetchRandomOutfit"
         :disabled="fetchingOutfit"
       >
         <span v-if="fetchingOutfit">LOADING</span>
-        <span v-else>GENERATE</span>
+        <span v-else>GENERATE OUTFIT</span>
       </button>
     </div>
     <div class="text-red-600">{{ error }}</div>

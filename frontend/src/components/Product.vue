@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-white w-full flex items-center justify-center bg-slate-400/20 dark:bg-slate-600/20 min-h-44"
+    class="text-white w-full flex items-center justify-center bg-slate-400/20 dark:bg-slate-600/20 min-h-44 rounded"
   >
     <div v-if="fetchingOutfit" class="text-slate-500 dark:text-slate-400">
       Loading
