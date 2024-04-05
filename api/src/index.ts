@@ -7,7 +7,7 @@ const app = express()
 
 app.use(
   cors({
-    origin: "http://159.203.163.207",
+    origin: ["http://159.203.163.207", "http://localhost:5173"],
   })
 )
 app.use("/api/outfit", outfitRouter)
