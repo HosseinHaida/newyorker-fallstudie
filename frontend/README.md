@@ -1,9 +1,28 @@
-# Vue 3 + TypeScript + Vite
+# NewYorker-Fallstudie Frontend
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+    This is the Vue.js frontend application for the NewYorker-Fallstudie.
 
-## Recommended Setup
+## Key Technologies
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+    - Vue.js 3 for a modern and reactive user interface.
+    - Vue Router for single-page application navigation.
+    - Pinia for state management.
+    - Vite for fast development experience and optimized builds.
+    - Tailwind CSS for rapid utility-based styling (if applicable).
 
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+### Installation
+
+    **Prerequisites:**
+    - Node.js version 20
+    - Clone this repository.
+    - Run `npm install` to install the required dependencies.
+
+    **Running the Application:**
+    - Run `npm run dev`
+    This will typically run the app at http://localhost:5173 (Hot Reloading).
+
+    **Building for Production:**
+    - Run `npm run build`
+
+    **Testing:**
+    - Run `npm run test` to let Vitest look for test files and run Unit Tests.

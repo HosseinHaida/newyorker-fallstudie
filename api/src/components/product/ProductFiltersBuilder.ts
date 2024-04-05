@@ -1,6 +1,9 @@
 import { getRandomItem } from "../../helpers"
 import { ProductFiltersRaw } from "./Product"
 
+// Transforms ProductFiltersRaw
+// into understandable filter properties
+// acceptable by api.newyorker.de
 export class ProductFiltersBuilder {
   gender: string
   country: string

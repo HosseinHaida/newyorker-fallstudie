@@ -3,6 +3,8 @@ import { nYProductsQuery } from "../../variables"
 import { ProductFiltersBuilder } from "./ProductFiltersBuilder"
 import { Product } from "./Product"
 
+// Fetches a Product based on filters
+// returns null if faces an error
 export const FetchSingle = async (
   filters: ProductFiltersBuilder
 ): Promise<Product | null> => {
