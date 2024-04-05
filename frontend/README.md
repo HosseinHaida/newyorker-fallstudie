@@ -5,7 +5,6 @@ This is the Vue.js frontend application for the NewYorker-Fallstudie.
 ## Key Technologies
 
 - Vue.js 3 for a modern and reactive user interface.
-- Vue Router for single-page application navigation.
 - Pinia for state management.
 - Vite for fast development experience and optimized builds.
 - Tailwind CSS for rapid utility-based styling (if applicable).
