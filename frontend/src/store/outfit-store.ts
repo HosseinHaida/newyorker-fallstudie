@@ -1,7 +1,6 @@
 import { defineStore } from "pinia"
 import { Outfit } from "@/types/Outfit"
 import axios, { AxiosError, isAxiosError } from "axios"
-import { apiUrl } from "./constants"
 
 export const useOutfitStore = defineStore("outfit", {
   state: () => ({
@@ -14,7 +13,7 @@ export const useOutfitStore = defineStore("outfit", {
       this.fetchingOutfit = true
       try {
         const response = await axios.get(
-          `${apiUrl}/outfit/random?gender=${gender}`
+          `${import.meta.env.VITE_API_URL}/outfit/random?gender=${gender}`
         )
         const outfit: Outfit = response.data.item
         this.randomOutfit = outfit
