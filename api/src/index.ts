@@ -5,12 +5,8 @@ import cors from "cors"
 
 const app = express()
 
-app.use(
-  cors({
-    origin: ["http://159.203.163.207", "http://localhost:5173"],
-  })
-)
-app.use("/api/outfit", outfitRouter)
+app.use(cors())
+app.use("/outfit", outfitRouter)
 
 const port = process.env.PORT || 3333
 
