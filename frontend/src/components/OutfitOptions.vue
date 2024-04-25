@@ -7,11 +7,13 @@
         :value="selectedGender"
         @change="selectedGender = genders.MALE"
         :label="genders.MALE"
+        :is-checked="selectedGender === genders.MALE"
       />
       <FormRadio
         :value="selectedGender"
         @change="selectedGender = genders.FEMALE"
         :label="genders.FEMALE"
+        :is-checked="selectedGender === genders.FEMALE"
       />
 
       <button
