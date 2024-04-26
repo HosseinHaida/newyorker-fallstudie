@@ -1,24 +1,57 @@
 <template>
   <div
-    class="text-white w-full flex items-center justify-center bg-slate-400/20 dark:bg-slate-600/20 min-h-44 rounded"
+    class="text-white w-full flex items-center justify-center bg-slate-400/20 dark:bg-slate-600/20 h-[55svh] xl:h-[65svh] rounded relative"
   >
-    <div v-if="fetchingOutfit" class="text-slate-500 dark:text-slate-400">
-      Loading
+    <div
+      v-if="fetchingOutfit"
+      class="text-xl text-slate-500 dark:text-slate-400 motion-safe:animate-pulse pb-32"
+    >
+      Loading ...
     </div>
-    <div v-else-if="!product" class="text-slate-500 dark:text-slate-400">
+    <div
+      v-else-if="!product"
+      class="text-xl text-slate-500 dark:text-slate-400"
+    >
       No product to show!
     </div>
-    <div v-else-if="props.product" class="w-full flex flex-col">
-      <img
-        v-if="productImg"
-        data-test="product-image"
+    <div
+      v-else-if="props.product && productImg"
+      class="mx-auto w-full h-full flex flex-col z-10"
+      data-test="product-image-wrapper"
+    >
+      <UseImage
         :src="`${nYImagesEndpoint}/${productImg.key}?&frame=1_1`"
         alt="Product Image"
-        class="p-4 w-full aspect-square"
+        class="pt-6 h-[40svh] max-h-[40svh] mx-auto transition-all aspect-auto duration-700"
+      >
+        <template #loading>
+          <div
+            class="h-full w-full flex items-center justify-center rounded bg-slate-400/20 dark:bg-slate-600/20 motion-safe:animate-pulse pb-32"
+          >
+            <span class="text-xl text-slate-500 dark:text-slate-400">
+              {{ description }} ...
+            </span>
+          </div>
+        </template>
+
+        <template #error>
+          <div class="w-full h-full flex justify-center pb-32">
+            <span class="text-xl text-slate-500 dark:text-slate-400">
+              Failed
+            </span>
+          </div>
+        </template>
+      </UseImage>
+    </div>
+    <div
+      class="w-full p-10 md:p-2 lg:p-10 min-w-[80%] absolute -bottom-[24%] z-0"
+      v-if="fetchingOutfit || props.product"
+    >
+      <ProductDetails
+        :product="props.product"
+        :description="description"
+        :loading="fetchingOutfit"
       />
-      <div class="w-full p-10">
-        <ProductDetails :product="props.product" />
-      </div>
     </div>
   </div>
 </template>
@@ -28,6 +61,7 @@ import ProductDetails from "./ProductDetails.vue"
 import { nYImagesEndpoint } from "@/store/constants"
 import { useOutfitStore } from "@/store/outfit-store"
 import { Product } from "@/types/Product"
+import { UseImage } from "@vueuse/components"
 import { computed } from "vue"
 
 const outfitStore = useOutfitStore()
@@ -43,6 +77,11 @@ const productImg = computed(() => {
     )
   return cutoutImg
 })
-</script>
 
-<style scoped></style>
+const description = computed(() => {
+  const englishDesc = props.product?.descriptions.find(
+    (desc) => desc.language === "EN"
+  )
+  return englishDesc?.description || ""
+})
+</script>

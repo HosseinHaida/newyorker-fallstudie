@@ -10,6 +10,8 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@vueuse/components": "^10.9.0",
+    "@vueuse/core": "^10.9.0",
     "axios": "^1.6.8",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",

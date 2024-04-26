@@ -61,7 +61,13 @@ describe("test ProductDetails", () => {
   })
 
   it("renders ProductDetails(price) correctly", () => {
-    const wrapper = mount(ProductDetails, { props: { product: testProduct } })
+    const wrapper = mount(ProductDetails, {
+      props: {
+        product: testProduct,
+        description: "test description",
+        loading: false,
+      },
+    })
 
     const productPrice = wrapper.find('[data-test="product-price"]')
     expect(productPrice.exists()).toBeTruthy()
