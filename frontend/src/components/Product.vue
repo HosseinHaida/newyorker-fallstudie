@@ -16,19 +16,19 @@
     </div>
     <div
       v-else-if="props.product && productImg"
-      class="mx-auto w-full h-full flex flex-col z-10"
+      class="mx-auto w-full h-full flex flex-col"
       data-test="product-image-wrapper"
     >
       <UseImage
         :src="`${nYImagesEndpoint}/${productImg.key}?&frame=1_1`"
         alt="Product Image"
-        class="pt-6 h-[40svh] max-h-[40svh] mx-auto transition-all aspect-auto duration-700"
+        class="pt-6 h-[40svh] max-h-[40svh] mx-auto transition-all aspect-auto duration-700 z-20"
       >
         <template #loading>
           <div
             class="h-full w-full flex items-center justify-center rounded bg-slate-400/20 dark:bg-slate-600/20 motion-safe:animate-pulse pb-32"
           >
-            <span class="text-xl text-slate-500 dark:text-slate-400">
+            <span class="text-xl text-slate-500 dark:text-slate-400 z-0">
               {{ description }} ...
             </span>
           </div>
@@ -36,7 +36,7 @@
 
         <template #error>
           <div class="w-full h-full flex justify-center pb-32">
-            <span class="text-xl text-slate-500 dark:text-slate-400">
+            <span class="text-xl text-slate-500 dark:text-slate-400 z-0">
               Failed
             </span>
           </div>
@@ -44,7 +44,7 @@
       </UseImage>
     </div>
     <div
-      class="w-full p-10 md:p-2 lg:p-10 min-w-[80%] absolute -bottom-[24%] z-0"
+      class="w-full p-10 md:p-2 lg:p-10 min-w-[80%] absolute -bottom-[24%] z-10"
       v-if="fetchingOutfit || props.product"
     >
       <ProductDetails
