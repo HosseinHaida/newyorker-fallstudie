@@ -62,11 +62,7 @@ describe("test ProductDetails", () => {
 
   it("renders ProductDetails(price) correctly", () => {
     const wrapper = mount(ProductDetails, {
-      props: {
-        product: testProduct,
-        description: "test description",
-        loading: false,
-      },
+      props: { product: testProduct, description: "test description" },
     })
 
     const productPrice = wrapper.find('[data-test="product-price"]')
