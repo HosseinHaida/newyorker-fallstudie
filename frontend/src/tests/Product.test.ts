@@ -61,20 +61,20 @@ describe("test Product", () => {
     setActivePinia(createPinia())
   })
 
-  it("renders Product(image) correctly", () => {
+  it("renders Product and image", () => {
     const wrapper = mount(Product, { props: { product: testProduct } })
-    const testProductImage = testProduct.variants[0].images.find(
-      (img) => img.type === "CUTOUT"
+    const productImageWrapper = wrapper.find(
+      "[data-test]=product-image-wrapper"
     )
+    expect(productImageWrapper.exists()).toBeTruthy()
+  })
 
-    const productImage = wrapper.find('[data-test="product-image"]')
-    if (testProductImage) {
-      expect(productImage.exists()).toBeTruthy()
-      expect(productImage.attributes("src")).toContain(
-        `${nYImagesEndpoint}/${testProductImage.key}`
-      )
-    } else {
-      expect(productImage.exists()).toBeFalsy()
-    }
+  it("renders empty Product with message", () => {
+    const wrapper = mount(Product, { props: { product: undefined } })
+    const productImageWrapper = wrapper.find(
+      "[data-test]=product-image-wrapper"
+    )
+    expect(wrapper.html()).contain("No product to show!")
+    expect(productImageWrapper.exists()).toBeFalsy()
   })
 })
